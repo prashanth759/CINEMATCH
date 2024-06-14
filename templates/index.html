@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CineMatch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body >
+    <h1>Welcome to Movie Recommendation System</h1>
+    <ul class="container">
+        <div class="btn"><a href="{{ url_for('add_movie') }}">Add Movie</a></div>
+        <div class="btn"><a href="{{ url_for('search_movie') }}">Search Movie</a></div>
+        <div class="btn"><a href="{{ url_for('recommend_movie') }}">Recommend Movies</a></div>
+        <div class="btn"><a href="{{ url_for('delete_movie') }}">Delete Movie</a></div>
+    </ul>
+</body>
+</html>

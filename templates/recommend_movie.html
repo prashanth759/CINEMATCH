@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommend Movies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='recommend.css') }}">
+</head>
+<body>
+    <h1>Recommend Movies</h1>
+    <form action="{{ url_for('recommend_movie') }}" method="post">
+        <label for="top_n">Top Movies:</label>
+        <input type="number" id="top_n" name="top_n"><br><br>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre"><br><br>
+        <input type="submit" value="Recommend">
+    </form>
+    {% if movies %}
+        <h2>Recommendations:</h2>
+        <ul>
+            {% for movie in movies %}
+                <li>{{ movie.title }} ({{ movie.genres | join(', ') }}) - Rating: {{ movie.rating }}</li>
+            {% endfor %}
+        </ul>
+    {% elif movies is not none %}
+        <p>No movies found.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
